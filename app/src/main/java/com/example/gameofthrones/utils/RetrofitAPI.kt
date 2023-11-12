@@ -11,7 +11,7 @@ object RetrofitAPI {
      **/
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://https://thronesapi.com/")
+            .baseUrl("https://thronesapi.com/api/v2/")
             .addConverterFactory((GsonConverterFactory.create()))
             .build()
     }

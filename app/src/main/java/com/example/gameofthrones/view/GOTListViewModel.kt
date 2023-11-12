@@ -13,11 +13,11 @@ import com.example.gameofthrones.utils.GameOfThronesService
 import com.example.gameofthrones.utils.RetrofitAPI
 import kotlinx.coroutines.launch
 
-class GOTListViewModel (private val repository: GOTRepository): ViewModel(){
+class GOTListViewModel(private val repository: GOTRepository) : ViewModel() {
     private val _listCharacter: MutableLiveData<List<GOTPresentation>> = MutableLiveData()
     val listCharacters: LiveData<List<GOTPresentation>> = _listCharacter
 
-    fun listCharacter(){
+    fun listCharacter() {
         viewModelScope.launch {
             val result = repository.getCharacters()
             val domain = GOTListDomain()
@@ -27,12 +27,12 @@ class GOTListViewModel (private val repository: GOTRepository): ViewModel(){
 
     companion object {
 
-        val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory{
+        val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
-            override fun <T: ViewModel> create(
+            override fun <T : ViewModel> create(
                 modelClass: Class<T>,
                 extras: CreationExtras
-            ): T{
+            ): T {
                 val retrofit = RetrofitAPI.getRetrofit()
                 val service = retrofit.create(GameOfThronesService::class.java)
                 val repository = GOTRepository(service)
