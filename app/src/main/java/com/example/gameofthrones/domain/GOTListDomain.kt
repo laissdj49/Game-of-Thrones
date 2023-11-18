@@ -16,7 +16,7 @@ class GOTListDomain {
                     fullName = item.fullName,
                     title = item.title,
                     family = item.family,
-                    imageUrl = item.family,
+                    imageUrl = item.imageUrl,
                     image = item.image,
                     id = item.id
                 )
@@ -25,12 +25,12 @@ class GOTListDomain {
 
 }
 data class GOTPresentation(
-    val id: Int,
-    val firstName: String,
-    val lastName: String,
-    val fullName: String,
-    val title: String,
-    val family: String,
-    val imageUrl: String,
-    val image: String
+    val id: Int = 0,
+    val firstName: String = "",
+    val lastName: String = "",
+    val fullName: String = "",
+    val title: String = "",
+    val family: String = "",
+    val imageUrl: String = "",
+    val image: String = ""
 )
