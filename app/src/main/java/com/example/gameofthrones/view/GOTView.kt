@@ -46,39 +46,44 @@ fun Characters(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 8.dp),
+                .align(alignment = Alignment.BottomStart)
+                .padding(start = 16.dp, bottom = 24.dp),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center
 
         ) {
             Text(
                 text = character.firstName,
-                color = Color.Red,
-                modifier = modifier.shadow(elevation = 20.dp, spotColor = Color.Red),
+                color = Color.White,
+                modifier = modifier.shadow(elevation = 30.dp, spotColor = character.shadowColor),
                 style = TextStyle(
                     fontFamily = FontFamily.Cursive,
                     textDecoration = TextDecoration.Underline
                 ),
                 fontWeight = FontWeight.Bold,
-                fontSize = 50.sp,
+                fontSize = 54.sp,
                 maxLines = 1
             )
-            Text(
-                text = character.lastName,
-                modifier = modifier.padding(start = 20.dp),
-                style = TextStyle(
-                    fontFamily = FontFamily.Cursive,
-                    textDecoration = TextDecoration.Underline
-                ),
-                color = Color.Red,
-                fontWeight = FontWeight.Bold,
-                fontSize = 50.sp,
-                maxLines = 1
-            )
+            if (character.lastName.isNotEmpty()) {
+                Text(
+                    text = character.lastName,
+                    modifier = modifier
+                        .padding(start = 20.dp)
+                        .shadow(elevation = 30.dp, spotColor = character.shadowColor),
+                    style = TextStyle(
+                        fontFamily = FontFamily.Cursive,
+                        textDecoration = TextDecoration.Underline
+                    ),
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 54.sp,
+                    maxLines = 1
+                )
+            }
             Text(
                 text = character.title,
                 modifier = modifier,
-                color = Color.Red,
+                color = Color.White,
                 fontWeight = FontWeight.Bold,
                 style = TextStyle(fontStyle = FontStyle.Italic),
                 fontSize = 20.sp,
@@ -86,7 +91,7 @@ fun Characters(
             )
             Text(
                 text = character.family,
-                color = Color.Red,
+                color = Color.White,
                 fontWeight = FontWeight.Bold,
                 style = TextStyle(fontStyle = FontStyle.Italic),
                 fontSize = 20.sp,
